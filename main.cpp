@@ -47,7 +47,6 @@ int main() {
 
 			if (Check == 1)
 			{
-
 				printf("要素一覧:{\n");
 				for (auto itr = house.begin(); itr != house.end(); ++itr)
 				{
@@ -86,16 +85,45 @@ int main() {
 		}
 		else if (Check == 2)
 		{
-			for (auto itr = house.begin(); itr != house.end(); ++itr)
+			int bangou = -1;
+
+			auto itr = house.begin();
+
+			printf("[リスト要素の挿入]\n");
+			printf("要素を追加する場所を指定してください。最後尾に追加する場合は何も入力しないでください\n");
+
+			scanf_s("%d", &bangou);
+
+			/*if (!isdigit(bangou)) {
+				bangou = house.size();
+			}*/
+
+			if (bangou> house.size())
 			{
-				//it = house[i];
+				printf("要素数が多すぎます。\n");
+			}
+			else {
+				printf("追加する要素の値を入力してください\n");
 
-				std::cout << *itr << "\n";
+				scanf_s("%d", &Check);
 
-				//printf("%d:%d",i,house.[i]);
+
+				for (int i = 1; i < bangou; i++)
+				{
+					itr++;
+				}
+
+				itr = house.insert(itr, Check);
+
+				printf("要素%dが%d番目に挿入されました\n", Check, bangou);
 			}
 		}
+		else if (Check == 3)
+		{
+			printf("[要素の編集]\n");
+			printf("編集したい要素の番号を指定してください。\n");
 
+		}
 	}
 
 	system("pause");
