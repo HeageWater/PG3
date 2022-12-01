@@ -6,43 +6,29 @@
 
 int main() {
 
-	std::function<int(int)> Check = [=](int random) {
-		if (random % 2 == 1) {
-			return 1;
+	int a = 0;
+
+	while (true) {
+
+		printf("[—v‘f‚Ì‘€ì]\n");
+		printf("1.—v‘f‚Ì•\¦\n");
+		printf("2.—v‘f‚Ì‘}“ü\n");
+
+		if (false) {
+			printf("3.[—v‘f‚Ì•ÒW\n");
+			printf("4.—v‘f‚Ìíœ\n");
 		}
 
-		if (random % 2 == 0) {
-			return 2;
-		}
+		printf("5.—v‘f‚Ì•À‚Ñ‘Ö‚¦(ƒIƒvƒVƒ‡ƒ“)\n");
 
-		return 0; };
+		printf("-----------\n");
 
-	auto TimeCount = [](int i) {
-		Sleep(i);
-	};
+		printf("‘€ì‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢\n");
 
-	void(*waittime)();
-
-	srand(time(NULL));
-
-	int random = rand() % 6 + 1;
-
-	int ansewr = 0;;
-
-	printf("”¼‚¾‚Á‚½‚ç‚P,’š‚¾‚Á‚½‚ç‚Q‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
-
-	scanf_s("%d", &ansewr);
-
-	TimeCount(3000);
-
-	if (ansewr == Check(random)) {
-		printf("³‰ğ\n");
-	}
-	else {
-		printf("•s³‰ğ\n");
+		scanf_s("%d\n",&a);
 	}
 
-	printf("%d\n", random);
+	system("pause");
 
 	return 0;
 }
