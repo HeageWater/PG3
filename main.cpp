@@ -3,14 +3,15 @@
 #include "time.h"
 #include <windows.h>
 #include <functional>
+#include <algorithm>
 #include <list>
 #include <iostream>
 using namespace std;
 
 int main() {
 
-	std::list<int> house = { 21,52,43 };
-	std::list<int>::iterator it;
+	list<int> house = { 1,2,3 };
+	list<int>::iterator it;
 
 	int Check = 0;
 
@@ -26,7 +27,7 @@ int main() {
 			printf("4.要素の削除\n");
 		}
 
-		printf("5.要素の並び替え(オプション)\n");
+		//printf("5.要素の並び替え(オプション)\n");
 
 		printf("-----------\n");
 
@@ -36,10 +37,10 @@ int main() {
 
 		if (Check == 1)
 		{
-
 			printf("\n[要素の表示]\n");
 			printf("1.要素の一覧表示\n");
-			printf("2.順番を指定して要素を表示\n\n");
+			printf("2.順番を指定して要素を表示\n");
+			printf("9.要作操作にもどる\n\n");
 
 			printf("操作を選択してください\n");
 
@@ -47,15 +48,15 @@ int main() {
 
 			if (Check == 1)
 			{
-				printf("要素一覧:{\n");
+				int a = 0;
+				printf("\n要素一覧:{\n");
 				for (auto itr = house.begin(); itr != house.end(); ++itr)
 				{
-					//it = house[i];
+					printf("%d:", a);
 
-					//printf("%d", itr);
+					a++;
+
 					std::cout << *itr << "\n";
-
-					//printf("%d:%d",i,house.[i]);
 				}
 
 				printf("}\n\n");
@@ -77,10 +78,18 @@ int main() {
 				for (int i = 1; i < Check; i++)
 				{
 					itr++;
+
+					if (i = Check - 1)
+						printf("\n%d:", i);
 				}
 
 				std::cout << *itr << "\n";
 
+			}
+			else if (Check == 9)
+			{
+				printf("\n");
+				continue;
 			}
 		}
 		else if (Check == 2)
@@ -90,15 +99,14 @@ int main() {
 			auto itr = house.begin();
 
 			printf("[リスト要素の挿入]\n");
-			printf("要素を追加する場所を指定してください。最後尾に追加する場合は何も入力しないでください\n");
+			printf("要素を追加する場所を指定してください。最後尾に追加する場合は999を入力してください\n");
 
 			scanf_s("%d", &bangou);
 
-			/*if (!isdigit(bangou)) {
-				bangou = house.size();
-			}*/
-
-			if (bangou> house.size())
+			if (bangou == 999) {
+				//house.push_back((string)bangou);
+			}
+			else if (bangou > house.size())
 			{
 				printf("要素数が多すぎます。\n");
 			}
@@ -107,22 +115,71 @@ int main() {
 
 				scanf_s("%d", &Check);
 
-
 				for (int i = 1; i < bangou; i++)
 				{
 					itr++;
 				}
 
-				itr = house.insert(itr, Check);
+				//itr = house.insert(itr, Check);
 
 				printf("要素%dが%d番目に挿入されました\n", Check, bangou);
 			}
 		}
-		else if (Check == 3)
+		else if (Check == 3 && house.size() != 0)
 		{
 			printf("[要素の編集]\n");
 			printf("編集したい要素の番号を指定してください。\n");
 
+			scanf_s("%d", &Check);
+
+			/*for (auto itr = house.begin(); itr != house.end(); ++itr)
+			{
+				it = itr;
+				if (itr == Check)
+				{
+					int Chenge = 0;
+
+					printf("%d番目の要素の変更する値を入力してください。\n", Check);
+
+					scanf_s("%d", &Chenge);
+
+					replace(house.begin(),house.end(),Check, Chenge);
+
+					printf("%d番目の要素の値が%dに変更されました。\n", Check,Chenge);
+
+					continue;
+				}
+			}*/
+
+			printf("%d番目の要素が見つかりませんでした。\n\n",Check);
+		}
+		else if (Check == 4 && house.size() != 0)
+		{
+			printf("[要素の削除]\n");
+			printf("削除したい要素の番号を指定してください。\n");
+
+			scanf_s("%d", &Check);
+
+			/*for (auto itr = house.begin(); itr != house.end(); ++itr)
+			{
+				it = itr;
+				if (itr == Check)
+				{
+					int Chenge = 0;
+
+					printf("%d番目の要素の変更する値を入力してください。\n", Check);
+
+					scanf_s("%d", &Chenge);
+
+					replace(house.begin(),house.end(),Check, Chenge);
+
+					printf("%d番目の要素の値が%dに変更されました。\n", Check,Chenge);
+
+					continue;
+				}
+			}*/
+
+			printf("%d番目の要素が見つかりませんでした。\n\n", Check);
 		}
 	}
 
