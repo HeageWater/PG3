@@ -14,28 +14,28 @@ int main() {
 	list<int>::iterator it;
 
 	int Check = 0;
+	int Mode = 0;
 
 	while (true)
 	{
+		if (Check == 0)
+		{
+			printf("[要素の操作]\n");
+			printf("1.要素の表示\n");
+			printf("2.要素の挿入\n");
 
-		printf("[要素の操作]\n");
-		printf("1.要素の表示\n");
-		printf("2.要素の挿入\n");
+			if (house.size() != 0) {
+				printf("3.要素の編集\n");
+				printf("4.要素の削除\n");
+			}
 
-		if (house.size() != 0) {
-			printf("3.要素の編集\n");
-			printf("4.要素の削除\n");
+			printf("-----------\n");
+
+			printf("操作を選択してください\n");
+
+			scanf_s("%d", &Check);
 		}
-
-		//printf("5.要素の並び替え(オプション)\n");
-
-		printf("-----------\n");
-
-		printf("操作を選択してください\n");
-
-		scanf_s("%d", &Check);
-
-		if (Check == 1)
+		else if (Check == 1)
 		{
 			printf("\n[要素の表示]\n");
 			printf("1.要素の一覧表示\n");
@@ -44,9 +44,9 @@ int main() {
 
 			printf("操作を選択してください\n");
 
-			scanf_s("%d", &Check);
+			scanf_s("%d", &Mode);
 
-			if (Check == 1)
+			if (Mode == 1)
 			{
 				int a = 0;
 				printf("\n要素一覧:{\n");
@@ -62,38 +62,48 @@ int main() {
 				printf("}\n\n");
 
 				printf("要素数:%d\n", (int)house.size());
-
-				printf("\n-----\n");
 			}
-			else if (Check == 2)
+			else if (Mode == 2)
 			{
 				printf("順番を指定して要素を表示\n\n");
 
 				printf("表示したい要素の順番を指定してください。\n");
 
-				scanf_s("%d", &Check);
+				scanf_s("%d", &Mode);
 
 				auto itr = house.begin();
 
-				for (int i = 1; i < Check; i++)
+				for (int i = 1; i < Mode; i++)
 				{
 					itr++;
 
-					if (i = Check - 1)
+					if (i = Mode - 1)
 						printf("\n%d:", i);
 				}
 
 				std::cout << *itr << "\n";
-
 			}
-			else if (Check == 9)
+			else if (Mode == 9)
 			{
 				printf("\n");
 				continue;
 			}
+
+			printf("\n-----\n");
+
+			printf("1.要素の表示に戻る\n");
+			printf("2.要素の操作に戻る\n");
+
+			scanf_s("%d", &Check);
+
+			if (Check == 2)
+			{
+				Check = 0;
+			}
 		}
 		else if (Check == 2)
 		{
+			Check = 0;
 			int bangou = -1;
 
 			auto itr = house.begin();
@@ -104,7 +114,14 @@ int main() {
 			scanf_s("%d", &bangou);
 
 			if (bangou == 999) {
-				//house.push_back((string)bangou);
+
+				printf("追加する要素の値を入力してください\n");
+
+				scanf_s("%d", &bangou);
+
+				house.push_back(bangou);
+
+				printf("要素%dが最後尾に挿入されました\n\n", bangou);
 			}
 			else if (bangou > house.size())
 			{
@@ -113,73 +130,81 @@ int main() {
 			else {
 				printf("追加する要素の値を入力してください\n");
 
-				scanf_s("%d", &Check);
+				scanf_s("%d", &Mode);
 
 				for (int i = 1; i < bangou; i++)
 				{
 					itr++;
 				}
 
-				//itr = house.insert(itr, Check);
+				itr = house.insert(itr, Mode);
 
-				printf("要素%dが%d番目に挿入されました\n", Check, bangou);
+				printf("要素%dが%d番目に挿入されました\n\n", Mode, bangou);
 			}
 		}
 		else if (Check == 3 && house.size() != 0)
 		{
+			Check = 0;
+			it = house.begin();
+
 			printf("[要素の編集]\n");
 			printf("編集したい要素の番号を指定してください。\n");
 
-			scanf_s("%d", &Check);
+			scanf_s("%d", &Mode);
 
-			/*for (auto itr = house.begin(); itr != house.end(); ++itr)
+			if (Mode > house.size())
 			{
-				it = itr;
-				if (itr == Check)
+				printf("%d番目の要素が見つかりませんでした。\n\n", Mode);
+			}
+			else
+			{
+				for (int i = 0; i < Mode; i++)
 				{
-					int Chenge = 0;
-
-					printf("%d番目の要素の変更する値を入力してください。\n", Check);
-
-					scanf_s("%d", &Chenge);
-
-					replace(house.begin(),house.end(),Check, Chenge);
-
-					printf("%d番目の要素の値が%dに変更されました。\n", Check,Chenge);
-
-					continue;
+					it++;
 				}
-			}*/
 
-			printf("%d番目の要素が見つかりませんでした。\n\n",Check);
+				int Chenge = 0;
+
+				printf("%d番目の要素の変更する値を入力してください。\n", Mode);
+
+				scanf_s("%d", &Chenge);
+
+				replace(house.begin(), house.end(), *it, Chenge);
+
+				printf("%d番目の要素の値が%dに変更されました。\n", Mode, Chenge);
+
+				continue;
+
+			}
 		}
 		else if (Check == 4 && house.size() != 0)
 		{
+			Check = 0;
+			it = house.begin();
+
 			printf("[要素の削除]\n");
 			printf("削除したい要素の番号を指定してください。\n");
 
-			scanf_s("%d", &Check);
+			scanf_s("%d", &Mode);
 
-			/*for (auto itr = house.begin(); itr != house.end(); ++itr)
+			if (Mode > house.size())
 			{
-				it = itr;
-				if (itr == Check)
+				printf("%d番目の要素が見つかりませんでした。\n\n", Mode);
+			}
+			else
+			{
+				for (int i = 0; i < Mode; i++)
 				{
-					int Chenge = 0;
-
-					printf("%d番目の要素の変更する値を入力してください。\n", Check);
-
-					scanf_s("%d", &Chenge);
-
-					replace(house.begin(),house.end(),Check, Chenge);
-
-					printf("%d番目の要素の値が%dに変更されました。\n", Check,Chenge);
-
-					continue;
+					it++;
 				}
-			}*/
 
-			printf("%d番目の要素が見つかりませんでした。\n\n", Check);
+				printf("%d番目の要素%dを削除しました。\n", Mode,*it);
+
+				house.erase(it);
+
+				continue;
+
+			}
 		}
 	}
 
