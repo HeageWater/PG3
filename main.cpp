@@ -6,7 +6,7 @@
 
 int main() {
 
-	std::function<int(int)> Check = [=](int random) {
+	std::function<int(int)> Check = [&](int random) {
 		if (random % 2 == 1) {
 			return 1;
 		}
