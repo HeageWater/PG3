@@ -44,5 +44,7 @@ int main() {
 
 	printf("%d\n", random);
 
+	system("pause");
+
 	return 0;
 }
