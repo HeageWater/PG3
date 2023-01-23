@@ -6,18 +6,23 @@
 
 int main() {
 
-	std::function<int(int)> Check = [&](int random) {
-		if (random % 2 == 1) {
-			return 1;
+	std::function<int(int)> Check = [&](int random)
+	{
+		if (random % 2 == 1)
+		{
+			printf("³‰ğ\n");
 		}
 
-		if (random % 2 == 0) {
-			return 2;
+		if (random % 2 == 0)
+		{
+			printf("•s³‰ğ\n");
 		}
 
-		return 0; };
+		return 0;
+	};
 
-	auto TimeCount = [](int i) {
+	auto TimeCount = [](int i)
+	{
 		Sleep(i);
 	};
 
@@ -35,14 +40,7 @@ int main() {
 
 	TimeCount(3000);
 
-	if (ansewr == Check(random)) {
-		printf("³‰ğ\n");
-	}
-	else {
-		printf("•s³‰ğ\n");
-	}
-
-	printf("%d\n", random);
+	ansewr == Check(random);
 
 	system("pause");
 
