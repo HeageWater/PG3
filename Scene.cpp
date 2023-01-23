@@ -1,8 +1,14 @@
 #include "Scene.h"
 
+Scene::~Scene()
+{
+}
+
 Scene::Scene(const Scene& obj)
 {
 	//printf("%s‚ğƒRƒs[‚µ‚Ü‚·",obj.name);
+
+	//x = obj.x;
 }
 
 Scene* Scene::GetInstance()
@@ -12,7 +18,7 @@ Scene* Scene::GetInstance()
 	return &instance;
 }
 
-void Scene::Update()
+void Scene::ChangeScene()
 {
 
 }

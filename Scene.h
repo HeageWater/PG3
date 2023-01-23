@@ -1,5 +1,12 @@
 #pragma once
 
+enum KindScene {
+	Title,
+	NewGame,
+	GamePlay,
+	GameClear,
+};
+
 class Scene final{
 private:
 	Scene();
@@ -12,5 +19,6 @@ public:
 
 	static Scene* GetInstance();
 
-	void Update();
+	int nowScene = Title;
+	void ChangeScene();
 };

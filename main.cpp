@@ -14,14 +14,17 @@ int main() {
 
 	Scene* scene = Scene::GetInstance();
 
-	while () {
+	while (true) {
 
-		scene->Update();
+		scene->ChangeScene();
+
+		printf("SceneNum: %d",scene->nowScene);
+		//printf("SceneNum: %d",scene->nowScene);
+
 
 	}
 
 	system("pause");
 
 	return 0;
-
 }
