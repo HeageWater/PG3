@@ -16,14 +16,28 @@ int main() {
 	Enemy* enemy1 = new Enemy;
 	Enemy* enemy2 = new Enemy;
 	Enemy* enemy3 = new Enemy;
-	
-	cout << Enemy::EnemyCount << endl;
 
-	delete enemy1;
 
 	cout << Enemy::EnemyCount << endl;
-	delete enemy2;
-	delete enemy3;
+
+	int selectDeathEnemy;
+
+	if (Enemy::EnemyCount != 0)
+	{
+		printf("enemy‚Í%d‘Ì¶‚«‚Ä‚Ü‚·\n", Enemy::EnemyCount);
+	}
+
+	scanf_s("1~3‚Ì”š‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢%d\n", &selectDeathEnemy);
+
+	if (selectDeathEnemy == 1)
+		delete enemy1;
+
+	if (selectDeathEnemy == 2)
+		delete enemy2;
+
+	if (selectDeathEnemy == 3)
+		delete enemy3;
+
 	cout << Enemy::EnemyCount << endl;
 
 
