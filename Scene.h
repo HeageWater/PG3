@@ -8,6 +8,7 @@ private:
 
 public:
 	static Scene* GetInstance();
+	Scene(const Scene& obj) = delete;
 
 	void ChangeScene(int nextScene);
 	int GetnowScene() { return nowScene; };
