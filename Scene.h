@@ -1,24 +1,14 @@
 #pragma once
 
-enum KindScene {
-	Title,
-	NewGame,
-	GamePlay,
-	GameClear,
-};
-
-class Scene final{
+class Scene final {
 private:
 	Scene();
 	~Scene();
-	Scene(const Scene& obj);
+	int nowScene;
 
 public:
-	//Scene(const Scene& obj) = delete;
-	//Scene& operater=(const Scene&obj) = delete;
-
 	static Scene* GetInstance();
 
-	int nowScene = Title;
-	void ChangeScene();
+	void ChangeScene(int nextScene);
+	int GetnowScene() { return nowScene; };
 };

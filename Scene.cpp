@@ -6,9 +6,7 @@ Scene::~Scene()
 
 Scene::Scene()
 {
-	//printf("%sÇÉRÉsÅ[ÇµÇ‹Ç∑",obj.name);
-
-	//x = obj.x;
+	nowScene = 0;
 }
 
 Scene* Scene::GetInstance()
@@ -18,7 +16,7 @@ Scene* Scene::GetInstance()
 	return &instance;
 }
 
-void Scene::ChangeScene()
+void Scene::ChangeScene(int nextScene)
 {
-
+	nowScene = nextScene;
 }

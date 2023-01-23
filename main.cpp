@@ -14,16 +14,18 @@ int main() {
 
 	Scene* scene = Scene::GetInstance();
 
+	int sceneNo = 0;
+
 	while (true) {
 
-		scene->ChangeScene();
+		sceneNo++;
+		if (sceneNo == 4)sceneNo = 0;
 
-		printf("SceneNum: %d",scene->nowScene);
-		//printf("SceneNum: %d",scene->nowScene);
+		scene->ChangeScene(sceneNo);
 
-		scene->nowScene++;
+		printf("SceneNum: %d\n",scene->GetnowScene());
 
-		printf("‚È‚É‚©“ü—Í‚µ‚ÄŽŸ‚Ö\n");
+		printf("ENTER‚ÅŽŸ‚Ö\n");
 
 		int flag;
 
