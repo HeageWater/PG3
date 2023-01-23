@@ -6,8 +6,16 @@
 
 int main() {
 
-	std::function<int(int)> Check = [&](int random)
+	auto TimeCount = [](int i)
 	{
+		Sleep(i);
+	};
+
+	auto Check = [=](int random, int count)
+		//std::function<int(int)>  Check = [=](int random, int count)
+	{
+		TimeCount(count);
+
 		if (random % 2 == 1)
 		{
 			printf("³‰ğ\n");
@@ -21,26 +29,23 @@ int main() {
 		return 0;
 	};
 
-	auto TimeCount = [](int i)
-	{
-		Sleep(i);
-	};
-
 	void(*waittime)();
 
 	srand(time(NULL));
 
 	int random = rand() % 6 + 1;
 
-	int ansewr = 0;;
+	int answer = 0;
+
+	int count = 3000;
 
 	printf("”¼‚¾‚Á‚½‚ç‚P,’š‚¾‚Á‚½‚ç‚Q‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
 
-	scanf_s("%d", &ansewr);
+	scanf_s("%d", &answer);
 
-	TimeCount(3000);
+	answer = Check(random, count);
 
-	ansewr == Check(random);
+	printf("%d\n", random % 2 + 1);
 
 	system("pause");
 
