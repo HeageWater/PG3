@@ -8,29 +8,24 @@
 #include <iostream>
 using namespace std;
 
-#include "Scene.h"
+#include "Enemy.h"
+
+int Enemy::EnemyCount;
 
 int main() {
+	Enemy* enemy1 = new Enemy;
+	Enemy* enemy2 = new Enemy;
+	Enemy* enemy3 = new Enemy;
+	
+	cout << Enemy::EnemyCount << endl;
 
-	Scene* scene = Scene::GetInstance();
+	delete enemy1;
 
-	int sceneNo = 0;
+	cout << Enemy::EnemyCount << endl;
+	delete enemy2;
+	delete enemy3;
+	cout << Enemy::EnemyCount << endl;
 
-	while (true) {
-
-		sceneNo++;
-		if (sceneNo == 4)sceneNo = 0;
-
-		scene->ChangeScene(sceneNo);
-
-		printf("SceneNum: %d\n",scene->GetnowScene());
-
-		printf("ENTER‚ÅŽŸ‚Ö\n");
-
-		int flag;
-
-		flag = getchar();
-	}
 
 	system("pause");
 
