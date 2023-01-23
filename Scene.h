@@ -14,7 +14,7 @@ private:
 	Scene(const Scene& obj);
 
 public:
-	Scene(const Scene& obj) = delete;
+	//Scene(const Scene& obj) = delete;
 	//Scene& operater=(const Scene&obj) = delete;
 
 	static Scene* GetInstance();

@@ -21,7 +21,13 @@ int main() {
 		printf("SceneNum: %d",scene->nowScene);
 		//printf("SceneNum: %d",scene->nowScene);
 
+		scene->nowScene++;
 
+		printf("‚È‚É‚©“ü—Í‚µ‚ÄŽŸ‚Ö\n");
+
+		int flag;
+
+		flag = getchar();
 	}
 
 	system("pause");

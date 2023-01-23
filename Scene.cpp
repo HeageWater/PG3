@@ -4,7 +4,7 @@ Scene::~Scene()
 {
 }
 
-Scene::Scene(const Scene& obj)
+Scene::Scene()
 {
 	//printf("%s‚ğƒRƒs[‚µ‚Ü‚·",obj.name);
 
