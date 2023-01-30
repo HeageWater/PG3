@@ -6,21 +6,23 @@ class Enemy {
 protected:
 public:
 	static int EnemyCount;
-	Enemy() { EnemyCount++; };
-	~Enemy() { EnemyCount = 0; };
+	Enemy() { };
+	~Enemy() {  };
 
 	void Update();
 
 	//‹ßÚ
-	void Func1();
+	void NearAttack();
 
 	//ËŒ‚
-	void Func2();
+	void Shoot();
 
 	//—£’E
-	void Func3();
+	void Escape();
 
-	static void (Enemy::*spFuncTable[])();
-
+	static void (Enemy::* phaseTable[])();
+	void PlusNowPhase() { nowPhase_++; };
+	int GetNowPhase() { return nowPhase_; };
+private:
 	int nowPhase_ = 0;
 };

@@ -1,9 +1,10 @@
 #include "Enemy.h"
 
-void(Enemy::* Enemy::spFuncTable[])() =
+void(Enemy::* Enemy::phaseTable[])() =
 {
-	&Enemy::Func1,
-	&Enemy::Func2,
+	&Enemy::NearAttack,
+	&Enemy::Shoot,
+	&Enemy::Escape,
 };
 
 void Enemy::Update()
@@ -11,20 +12,20 @@ void Enemy::Update()
 	static_cast<size_t>(nowPhase_);
 
 	if (nowPhase_ >= 0 && nowPhase_ < 3)
-		(this->*spFuncTable[nowPhase_])();
+		(this->*phaseTable[nowPhase_])();
 }
 
-void Enemy::Func1()
+void Enemy::NearAttack()
 {
 	printf("近接モード\n");
 }
 
-void Enemy::Func2()
+void Enemy::Shoot()
 {
 	printf("射撃モード\n");
 }
 
-void Enemy::Func3()
+void Enemy::Escape()
 {
 	printf("離脱モード\n");
 }

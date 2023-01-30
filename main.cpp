@@ -14,17 +14,20 @@ int main() {
 
 	Enemy* enemy1 = new Enemy;
 
-	int phase_ = 0;
-	static_cast<size_t>(phase_);
-
 	while (true)
 	{
-		//printf("");
+		printf("Enter‚ÅŸ‚Ö\n");
+		int flag;
+		flag = getchar();
 
 		enemy1->Update();
-		enemy1->nowPhase_++;
+		enemy1->PlusNowPhase();
 
-
+		if (enemy1->GetNowPhase() > 2)
+		{
+			printf("I—¹\n");
+			break;
+		}
 	}
 
 
