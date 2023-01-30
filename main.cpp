@@ -10,34 +10,23 @@ using namespace std;
 
 #include "Enemy.h"
 
-int Enemy::EnemyCount;
-
 int main() {
+
 	Enemy* enemy1 = new Enemy;
-	Enemy* enemy2 = new Enemy;
-	Enemy* enemy3 = new Enemy;
 
-	int selectDeathEnemy;
+	int phase_ = 0;
+	static_cast<size_t>(phase_);
 
-	if (Enemy::EnemyCount != 0)
+	while (true)
 	{
-		printf("enemy‚Í%d‘Ì¶‚«‚Ä‚Ü‚·\n", Enemy::EnemyCount);
+		//printf("");
+
+		enemy1->Update();
+		enemy1->nowPhase_++;
+
+
 	}
 
-	printf("1~3‚Ì”š‚ğ‰Ÿ‚·‚ÆEnemy‚ªÁ‚¦‚Ü‚·B\n");
-
-	scanf_s("%d", &selectDeathEnemy);
-
-	if (selectDeathEnemy == 1)
-		delete enemy1;
-
-	if (selectDeathEnemy == 2)
-		delete enemy2;
-
-	if (selectDeathEnemy == 3)
-		delete enemy3;
-
-	printf("enemy‚Í%d‘Ì¶‚«‚Ä‚Ü‚·\n", Enemy::EnemyCount);
 
 	system("pause");
 
