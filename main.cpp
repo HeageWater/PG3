@@ -8,28 +8,19 @@
 #include <iostream>
 using namespace std;
 
-#include "Enemy.h"
+#include "Circle.h"
+#include "RectAngle.h"
 
 int main() {
 
-	Enemy* enemy1 = new Enemy;
+	Circle* circle = new Circle();
+	RectAngle* rectangle = new RectAngle();
 
-	while (true)
-	{
-		printf("Enter‚ÅŽŸ‚Ö\n");
-		int flag;
-		flag = getchar();
+	circle->Size();
+	circle->Draw();
 
-		enemy1->Update();
-		enemy1->PlusNowPhase();
-
-		if (enemy1->GetNowPhase() > 2)
-		{
-			printf("I—¹\n");
-			break;
-		}
-	}
-
+	rectangle->Size();
+	rectangle->Draw();
 
 	system("pause");
 
