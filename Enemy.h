@@ -5,5 +5,5 @@ protected:
 public:
 	static int EnemyCount;
 	Enemy() { EnemyCount++; };
-	~Enemy() { EnemyCount--; };
+	~Enemy() { EnemyCount = 0; };
 };

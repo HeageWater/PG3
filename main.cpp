@@ -17,9 +17,6 @@ int main() {
 	Enemy* enemy2 = new Enemy;
 	Enemy* enemy3 = new Enemy;
 
-
-	cout << Enemy::EnemyCount << endl;
-
 	int selectDeathEnemy;
 
 	if (Enemy::EnemyCount != 0)
@@ -27,7 +24,9 @@ int main() {
 		printf("enemy‚Í%d‘Ì¶‚«‚Ä‚Ü‚·\n", Enemy::EnemyCount);
 	}
 
-	scanf_s("1~3‚Ì”š‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢%d\n", &selectDeathEnemy);
+	printf("1~3‚Ì”š‚ğ‰Ÿ‚·‚ÆEnemy‚ªÁ‚¦‚Ü‚·B\n");
+
+	scanf_s("%d", &selectDeathEnemy);
 
 	if (selectDeathEnemy == 1)
 		delete enemy1;
@@ -38,8 +37,7 @@ int main() {
 	if (selectDeathEnemy == 3)
 		delete enemy3;
 
-	cout << Enemy::EnemyCount << endl;
-
+	printf("enemy‚Í%d‘Ì¶‚«‚Ä‚Ü‚·\n", Enemy::EnemyCount);
 
 	system("pause");
 
