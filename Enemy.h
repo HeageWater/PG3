@@ -23,6 +23,7 @@ public:
 	static void (Enemy::* phaseTable[])();
 	void PlusNowPhase() { nowPhase_++; };
 	int GetNowPhase() { return nowPhase_; };
+
 private:
 	int nowPhase_ = 0;
 };

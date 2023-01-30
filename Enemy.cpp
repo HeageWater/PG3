@@ -12,7 +12,9 @@ void Enemy::Update()
 	static_cast<size_t>(nowPhase_);
 
 	if (nowPhase_ >= 0 && nowPhase_ < 3)
+	{
 		(this->*phaseTable[nowPhase_])();
+	}
 }
 
 void Enemy::NearAttack()
