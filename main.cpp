@@ -4,45 +4,48 @@
 #include <windows.h>
 #include <functional>
 
-int main() {
+typedef int (*PFunc)();
 
-	std::function<int(int)> Check = [=](int random) {
-		if (random % 2 == 1) {
-			return 1;
-		}
-
-		if (random % 2 == 0) {
-			return 2;
-		}
-
-		return 0; };
-
-	auto TimeCount = [](int i) {
-		Sleep(i);
-	};
-
-	void(*waittime)();
-
-	srand(time(NULL));
-
-	int random = rand() % 6 + 1;
-
-	int ansewr = 0;;
+int Answer()
+{
+	int answer = 0;
 
 	printf("”¼‚¾‚Á‚½‚ç‚P,’š‚¾‚Á‚½‚ç‚Q‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
 
-	scanf_s("%d", &ansewr);
+	scanf_s("%d", &answer);
 
-	TimeCount(3000);
+	return answer;
+};
 
-	if (ansewr == Check(random)) {
+void CheckAnswer(PFunc p, int count)
+{
+	int random = p();
+
+	srand(time(NULL));
+
+	int result = rand() % 6 + 1;
+
+	Sleep(count * 1000);
+
+	if (result % 2 == random)
+	{
 		printf("³‰ğ\n");
 	}
-	else {
+	else
+	{
 		printf("•s³‰ğ\n");
 	}
+};
 
-	printf("%d\n", random);
+int main()
+{
+	PFunc p;
+
+	p = Answer;
+
+	CheckAnswer(p, 3);
+
+	system("pause");
 
 	return 0;
 }
