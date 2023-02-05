@@ -6,13 +6,12 @@
 
 int main() {
 
-	auto TimeCount = [](int i)
+	std::function<void(int)> TimeCount = [](int count)
 	{
-		Sleep(i);
+		Sleep(count);
 	};
 
 	auto Check = [=](int random, int count)
-		//std::function<int(int)>  Check = [=](int random, int count)
 	{
 		TimeCount(count);
 
@@ -44,8 +43,6 @@ int main() {
 	scanf_s("%d", &answer);
 
 	answer = Check(random, count);
-
-	printf("%d\n", random % 2 + 1);
 
 	system("pause");
 
