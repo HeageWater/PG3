@@ -41,14 +41,12 @@ int main()
 			{
 				if (*itr == "nisinippori")
 				{
-					station.erase(station.begin() + itr);
-					continue;
+					itr = station.erase(itr);
 				}
 
 				if (*itr == "takanawagw-towei")
 				{
-					station.erase(itr);
-					continue;
+					itr = station.erase(itr);
 				}
 
 				std::cout << *itr << "\n";
@@ -67,13 +65,15 @@ int main()
 				{
 					std::cout << *itr << "\n";
 					itr++;
-					itr = station.insert(itr, "nisinippori");
+					if (*itr != "nisinippori")
+					{
+						itr = station.insert(itr, "nisinippori");
+					}
 				}
 
 				if (*itr == "takanawagw-towei")
 				{
-					station.erase(itr);
-					continue;
+					itr = station.erase(itr);
 				}
 
 				std::cout << *itr << "\n";
@@ -92,15 +92,20 @@ int main()
 				{
 					std::cout << *itr << "\n";
 					itr++;
-					itr = station.insert(itr, "nisinippori");
-					//itr->push_back(*"nisinippori");
+					if (*itr != "nisinippori")
+					{
+						itr = station.insert(itr, "nisinippori");
+					}
 				}
 
 				if (*itr == "tamati")
 				{
 					std::cout << *itr << "\n";
 					itr++;
-					itr = station.insert(itr, "takanawagw-towei");
+					if (*itr != "takanawagw-towei")
+					{
+						itr = station.insert(itr, "takanawagw-towei");
+					}
 				}
 
 				std::cout << *itr << "\n";
