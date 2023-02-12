@@ -1,20 +1,23 @@
 #pragma once
-
-struct Person
-{
-	int id_;
-	int name_;
-	int class_;
-};
+#include <string>
+#include <iostream>
+#include "Person.h"
+using namespace std;
 
 class Task
 {
-	//int id_;
-	 Person person_;
-	//int class_;
-	int title_;
-	int contents_;
-	int priority_;
-	int deadline_;
-	int status_;
+public:
+	Task(int id_, string title_, string contents_,
+		string priority_, string deadline_, Person* person_);
+
+	Task(int id_, Person* person_, std::string name_, std::string contents_, 
+		std::string priority_, string deadline_, bool _status);
+
+	int id_;
+	Person* person_;
+	string name_;
+	string contents_;
+	string priority_;
+	string deadline_;
+	bool status_;
 };

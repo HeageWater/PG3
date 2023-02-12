@@ -140,10 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="PersonManager.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TaskManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="PersonManager.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Task.h" />
+    <ClInclude Include="TaskManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
